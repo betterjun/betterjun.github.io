@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.17" />
+
+
+
+<link rel="canonical" href="http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>ps命令学习汇总 - Betterjun, 做更好的自己!</title>
+    
+<meta name="description" content="常用用法，查看进程cpu、占用内存、虚拟内存信息[root@SE ~]# ps axu USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.0 19224 1544 ? Ss 2016 0:03 /sbin/init root 2 0.0 0.0 0 0 ? S 2016 0:00 [kthreadd] root 3 0.0 0.0 0 0 ? S 2016 0:03 [migration/0] root 4 0.0 0.0 0 0 ? S 2016 0:06 [ksoftirqd/0] root 5 0.0 0.0 0 0 ? S 2016 0:00 [migration/0] root 6 0.">
+
+<meta property="og:title" content="ps命令学习汇总 - Betterjun, 做更好的自己!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+<meta property="og:image" content="http://betterjun.top/images/default.png">
+<meta property="og:site_name" content="Betterjun, 做更好的自己!">
+<meta property="og:description" content="常用用法，查看进程cpu、占用内存、虚拟内存信息[root@SE ~]# ps axu USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.0 19224 1544 ? Ss 2016 0:03 /sbin/init root 2 0.0 0.0 0 0 ? S 2016 0:00 [kthreadd] root 3 0.0 0.0 0 0 ? S 2016 0:03 [migration/0] root 4 0.0 0.0 0 0 ? S 2016 0:06 [ksoftirqd/0] root 5 0.0 0.0 0 0 ? S 2016 0:00 [migration/0] root 6 0.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Betterjun, 做更好的自己!">
+<meta name="twitter:url" content="http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+<meta name="twitter:title" content="ps命令学习汇总 - Betterjun, 做更好的自己!">
+<meta name="twitter:description" content="常用用法，查看进程cpu、占用内存、虚拟内存信息[root@SE ~]# ps axu USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.0 19224 1544 ? Ss 2016 0:03 /sbin/init root 2 0.0 0.0 0 0 ? S 2016 0:00 [kthreadd] root 3 0.0 0.0 0 0 ? S 2016 0:03 [migration/0] root 4 0.0 0.0 0 0 ? S 2016 0:06 [ksoftirqd/0] root 5 0.0 0.0 0 0 ? S 2016 0:00 [migration/0] root 6 0.">
+<meta name="twitter:image" content="http://betterjun.top/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http:\/\/betterjun.top\/"
+    },
+    "headline": "ps命令学习汇总 - Betterjun, 做更好的自己!",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http:\/\/betterjun.top\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-01-01T23:30:28JST",
+    "dateModified": "2017-01-01T23:30:28JST",
+    "author": {
+      "@type": "Person",
+      "name": "Betterjun, 做更好的自己!"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Betterjun, 做更好的自己!",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/betterjun.top\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "常用用法，查看进程cpu、占用内存、虚拟内存信息\n[root@SE ~]# ps axu USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.0 19224 1544 ? Ss 2016 0:03 \/sbin\/init root 2 0.0 0.0 0 0 ? S 2016 0:00 [kthreadd] root 3 0.0 0.0 0 0 ? S 2016 0:03 [migration\/0] root 4 0.0 0.0 0 0 ? S 2016 0:06 [ksoftirqd\/0] root 5 0.0 0.0 0 0 ? S 2016 0:00 [migration\/0] root 6 0."
+  }
+</script>
+
+
+    <link href="http://betterjun.top/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://betterjun.top/">Betterjun, 做更好的自己!</a>
+          </div>
+
+          
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/">Home</a></li>
+              
+              
+              
+              <li><a href="/tags/">Tag</a></li>
+              
+              
+              
+              <li><a href="/categories/">Category</a></li>
+              
+              
+            </ul>
+            
+          </div>
+          
+
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        
+<div class="row">
+  <div class="col-md-8">
+
+    <nav class="p-crumb">
+      <ol class="breadcrumb">
+        <li><a href="http://betterjun.top/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="http://betterjun.top/post/" itemprop="url"><span itemprop="title">post</span></a></li>
+        
+        <li class="active">ps命令学习汇总</li>
+      </ol>
+    </nav>
+
+    <article class="single">
+  <header>
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-01T23:30:28JST">Jan 1, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="http://betterjun.top/post/">post</a></li>
+      
+    </ul>
+
+    <h1 class="title">ps命令学习汇总</h1>
+  </header>
+
+  
+
+  <div class="article-body"><p>常用用法，查看进程cpu、占用内存、虚拟内存信息</p>
+
+<pre><code>[root@SE ~]# ps axu
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          1  0.0  0.0  19224  1544 ?        Ss    2016   0:03 /sbin/init
+root          2  0.0  0.0      0     0 ?        S     2016   0:00 [kthreadd]
+root          3  0.0  0.0      0     0 ?        S     2016   0:03 [migration/0]
+root          4  0.0  0.0      0     0 ?        S     2016   0:06 [ksoftirqd/0]
+root          5  0.0  0.0      0     0 ?        S     2016   0:00 [migration/0]
+root          6  0.0  0.0      0     0 ?        S     2016   0:01 [watchdog/0]
+
+</code></pre>
+
+<p>查看进程启动精确时间。ps -ef可以看到进程的启动时间，但是这个时间如果超过24小时就只能看到年份了，使用如下命令可以看到精确的启动时间。</p>
+
+<pre><code>[root@store02-2sn ~]# ps -eO lstart|grep se-
+ 63138 Wed Dec 21 10:30:39 2016 S ?        2-01:10:38 /opt/se/modules/se-lte2db/se-lte2db
+ 63276 Wed Dec 21 10:30:49 2016 S ?        16:32:35 /opt/se/modules/se-fileproc/se-fileproc
+</code></pre>
+</div>
+
+  <footer class="article-footer">
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">CATEGORIES</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">TAGS</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/tags/linux/">linux</a></li>
+          
+          <li><a href="http://betterjun.top/tags/ps/">ps</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+  </footer>
+
+</article>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'XYW';
+    var disqus_identifier = 'http:\/\/betterjun.top\/post\/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB\/';
+    var disqus_title = 'ps命令学习汇总';
+    var disqus_url = 'http:\/\/betterjun.top\/post\/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+  <div class="col-md-4">
+    
+<aside class="l-sidebar">
+
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">LATESTS</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">top命令学习汇总</a>
+      
+      <a href="http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">ps命令学习汇总</a>
+      
+    </div>
+  </section>
+
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">CATEGORY</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93" class="list-group-item">学习总结</a>
+      
+    </div>
+  </section>
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">TAG</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/tags/linux" class="list-group-item">linux</a>
+      
+      <a href="http://betterjun.top/tags/ps" class="list-group-item">ps</a>
+      
+      <a href="http://betterjun.top/tags/top" class="list-group-item">top</a>
+      
+    </div>
+  </section>
+  
+
+</aside>
+
+
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="container">
+        <p><span class="h-logo">&copy; Betterjun, 做更好的自己!</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

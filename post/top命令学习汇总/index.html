@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.17" />
+
+
+
+<link rel="canonical" href="http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>top命令学习汇总 - Betterjun, 做更好的自己!</title>
+    
+<meta name="description" content="常规用法: 查看cpu信息root@iZwz9bruzaqhhifjeavouzZ:~# top top - 23:43:11 up 51 days, 11:00, 1 user, load average: 0.05, 0.05, 0.05 Tasks: 88 total, 1 running, 87 sleeping, 0 stopped, 0 zombie %Cpu(s): 1.3 us, 1.0 sy, 0.0 ni, 97.3 id, 0.3 wa, 0.0 hi, 0.0 si, 0.0 st KiB Mem: 1017712 total, 905048 used, 112664 free, 205412 buffers KiB Swap: 0 total, 0 used, 0 free. 368316 cached Mem PID USER PR NI VIRT RES SHR S %CPU %MEM TIME&#43; COMMAND 1 root 20 0 36672 4964 504 S 0.">
+
+<meta property="og:title" content="top命令学习汇总 - Betterjun, 做更好的自己!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+<meta property="og:image" content="http://betterjun.top/images/default.png">
+<meta property="og:site_name" content="Betterjun, 做更好的自己!">
+<meta property="og:description" content="常规用法: 查看cpu信息root@iZwz9bruzaqhhifjeavouzZ:~# top top - 23:43:11 up 51 days, 11:00, 1 user, load average: 0.05, 0.05, 0.05 Tasks: 88 total, 1 running, 87 sleeping, 0 stopped, 0 zombie %Cpu(s): 1.3 us, 1.0 sy, 0.0 ni, 97.3 id, 0.3 wa, 0.0 hi, 0.0 si, 0.0 st KiB Mem: 1017712 total, 905048 used, 112664 free, 205412 buffers KiB Swap: 0 total, 0 used, 0 free. 368316 cached Mem PID USER PR NI VIRT RES SHR S %CPU %MEM TIME&#43; COMMAND 1 root 20 0 36672 4964 504 S 0.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Betterjun, 做更好的自己!">
+<meta name="twitter:url" content="http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/">
+<meta name="twitter:title" content="top命令学习汇总 - Betterjun, 做更好的自己!">
+<meta name="twitter:description" content="常规用法: 查看cpu信息root@iZwz9bruzaqhhifjeavouzZ:~# top top - 23:43:11 up 51 days, 11:00, 1 user, load average: 0.05, 0.05, 0.05 Tasks: 88 total, 1 running, 87 sleeping, 0 stopped, 0 zombie %Cpu(s): 1.3 us, 1.0 sy, 0.0 ni, 97.3 id, 0.3 wa, 0.0 hi, 0.0 si, 0.0 st KiB Mem: 1017712 total, 905048 used, 112664 free, 205412 buffers KiB Swap: 0 total, 0 used, 0 free. 368316 cached Mem PID USER PR NI VIRT RES SHR S %CPU %MEM TIME&#43; COMMAND 1 root 20 0 36672 4964 504 S 0.">
+<meta name="twitter:image" content="http://betterjun.top/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http:\/\/betterjun.top\/"
+    },
+    "headline": "top命令学习汇总 - Betterjun, 做更好的自己!",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http:\/\/betterjun.top\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-01-01T23:31:00JST",
+    "dateModified": "2017-01-01T23:31:00JST",
+    "author": {
+      "@type": "Person",
+      "name": "Betterjun, 做更好的自己!"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Betterjun, 做更好的自己!",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/betterjun.top\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "常规用法: 查看cpu信息\nroot@iZwz9bruzaqhhifjeavouzZ:~# top top - 23:43:11 up 51 days, 11:00, 1 user, load average: 0.05, 0.05, 0.05 Tasks: 88 total, 1 running, 87 sleeping, 0 stopped, 0 zombie %Cpu(s): 1.3 us, 1.0 sy, 0.0 ni, 97.3 id, 0.3 wa, 0.0 hi, 0.0 si, 0.0 st KiB Mem: 1017712 total, 905048 used, 112664 free, 205412 buffers KiB Swap: 0 total, 0 used, 0 free. 368316 cached Mem PID USER PR NI VIRT RES SHR S %CPU %MEM TIME\x2b COMMAND 1 root 20 0 36672 4964 504 S 0."
+  }
+</script>
+
+
+    <link href="http://betterjun.top/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://betterjun.top/">Betterjun, 做更好的自己!</a>
+          </div>
+
+          
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/">Home</a></li>
+              
+              
+              
+              <li><a href="/tags/">Tag</a></li>
+              
+              
+              
+              <li><a href="/categories/">Category</a></li>
+              
+              
+            </ul>
+            
+          </div>
+          
+
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        
+<div class="row">
+  <div class="col-md-8">
+
+    <nav class="p-crumb">
+      <ol class="breadcrumb">
+        <li><a href="http://betterjun.top/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="http://betterjun.top/post/" itemprop="url"><span itemprop="title">post</span></a></li>
+        
+        <li class="active">top命令学习汇总</li>
+      </ol>
+    </nav>
+
+    <article class="single">
+  <header>
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-01T23:31:00JST">Jan 1, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="http://betterjun.top/post/">post</a></li>
+      
+    </ul>
+
+    <h1 class="title">top命令学习汇总</h1>
+  </header>
+
+  
+
+  <div class="article-body">
+
+<h2 id="常规用法">常规用法:</h2>
+
+<p>查看cpu信息</p>
+
+<pre><code>root@iZwz9bruzaqhhifjeavouzZ:~# top
+top - 23:43:11 up 51 days, 11:00,  1 user,  load average: 0.05, 0.05, 0.05
+Tasks:  88 total,   1 running,  87 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.3 us,  1.0 sy,  0.0 ni, 97.3 id,  0.3 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:   1017712 total,   905048 used,   112664 free,   205412 buffers
+KiB Swap:        0 total,        0 used,        0 free.   368316 cached Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   36672   4964    504 S  0.0  0.5   0:02.99 init
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    3 root      20   0       0      0      0 S  0.0  0.0   0:28.03 ksoftirqd/0
+</code></pre>
+
+<p>查看各个cpu使用情况，top后，再按1，</p>
+
+<pre><code>[root@SE ~]# top
+top - 00:04:12 up 12 days,  2:53,  1 user,  load average: 0.15, 0.07, 0.01
+Tasks: 508 total,   1 running, 507 sleeping,   0 stopped,   0 zombie
+Cpu0  :  0.0%us,  0.0%sy,  0.0%ni, 99.0%id,  1.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu1  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu2  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu3  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu4  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu5  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu6  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu7  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu8  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu9  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu10 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu11 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu12 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu13 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu14 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu15 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu16 :  0.0%us,  0.3%sy,  0.0%ni, 99.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu17 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu18 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu19 :  0.3%us,  0.0%sy,  0.0%ni, 99.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu20 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu21 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu22 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Cpu23 :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  32837188k total,  3460832k used, 29376356k free,  1142872k buffers
+Swap: 32767992k total,        0k used, 32767992k free,  1340076k cached
+
+   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+  2160 root      20   0     0    0    0 S  0.3  0.0   0:20.46 kondemand/16
+     1 root      20   0 19224 1544 1252 S  0.0  0.0   0:03.73 init
+     2 root      20   0     0    0    0 S  0.0  0.0   0:00.02 kthreadd
+</code></pre>
+
+<p>查看指定进程的所有线程使用cpu情况，top -Hp pid，</p>
+
+<pre><code>[root@SE ~]# top -Hp 1
+top - 00:05:36 up 12 days,  2:54,  1 user,  load average: 0.04, 0.05, 0.00
+Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+Cpu(s):  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  32837188k total,  3459404k used, 29377784k free,  1142880k buffers
+Swap: 32767992k total,        0k used, 32767992k free,  1340088k cached
+
+   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+     1 root      20   0 19224 1544 1252 S  0.0  0.0   0:03.73 init
+</code></pre>
+
+<p>top后，再分别按PTM，按CPU、时间、内存降序排列</p>
+
+<p>参考资料:</p>
+
+<p>各列详细说明，<a href="http://www.cnblogs.com/me115/p/3842081.html">http://www.cnblogs.com/me115/p/3842081.html</a></p>
+
+<p>各列详细说明，外加部分使用案例 <a href="http://www.cnblogs.com/peida/archive/2012/12/24/2831353.html">http://www.cnblogs.com/peida/archive/2012/12/24/2831353.html</a></p>
+
+<p>各列详细说明，以及其他一些有用工具，<a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/top.html">http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/top.html</a></p>
+</div>
+
+  <footer class="article-footer">
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">CATEGORIES</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">TAGS</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/tags/linux/">linux</a></li>
+          
+          <li><a href="http://betterjun.top/tags/top/">top</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+  </footer>
+
+</article>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'XYW';
+    var disqus_identifier = 'http:\/\/betterjun.top\/post\/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB\/';
+    var disqus_title = 'top命令学习汇总';
+    var disqus_url = 'http:\/\/betterjun.top\/post\/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+  <div class="col-md-4">
+    
+<aside class="l-sidebar">
+
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">LATESTS</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">top命令学习汇总</a>
+      
+      <a href="http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">ps命令学习汇总</a>
+      
+    </div>
+  </section>
+
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">CATEGORY</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93" class="list-group-item">学习总结</a>
+      
+    </div>
+  </section>
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">TAG</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/tags/linux" class="list-group-item">linux</a>
+      
+      <a href="http://betterjun.top/tags/ps" class="list-group-item">ps</a>
+      
+      <a href="http://betterjun.top/tags/top" class="list-group-item">top</a>
+      
+    </div>
+  </section>
+  
+
+</aside>
+
+
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="container">
+        <p><span class="h-logo">&copy; Betterjun, 做更好的自己!</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
