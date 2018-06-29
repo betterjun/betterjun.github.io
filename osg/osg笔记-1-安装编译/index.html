@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.17" />
+
+
+
+<link rel="canonical" href="http://betterjun.top/osg/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>OSG笔记-1-编译安装 - Betterjun, 做更好的自己!</title>
+    
+<meta name="description" content="1. 获取 1.1. 快速开始 快速开始,对整个流程的介绍，见这里http://www.openscenegraph.org/index.php/documentation/getting-started。1.2. 下载 下载源码编译， http://www.openscenegraph.org/index.php/download-section/stable-releases。1.3. 编译 所有平台的编译入口在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics。windows平台编译方法在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics/windows/37-visual-studio。1.4. 获取样例数据 在后面运行OSG的示例程序时，需要用到样例数据，在这里下载，http://www.openscenegraph.org/index.php/download-section/data。1.5. 执行样例程序 执行样例程序，需要设置环境变量OSG_FILE_PATH，具体见，http://www.openscenegraph.org/index.php/documentation/guides/user-guides/113-running-the-examples。2. 新建工程编译 官方建议单独新建工程，不要和OSG的工程混在一起。同时将OpenSceneGraph\applications\osgViewer\osgViewer.cpp拷贝添加到新工程中，然后设置编译环境，验证编译通过。2.1. 工程设置 建议设置如下环境变量 OSG_ROOT points to the base of the OSG file structure (the directory that contains include, src etc. subdirectories)OSG_BIN_PATH = %OSG_ROOT%\binOSG_INCLUDE_PATH = %OSG_ROOT%\includeOSG_LIB_PATH = %OSG_ROOT%\libOSG_SAMPLES_PATH = %OSG_ROOT%\share\OpenSceneGraph\binOSG_FILE_PATH = ???\OpenSceneGraph-Data-X.XThen, add %OSG_BIN_PATH% and %OSG_SAMPLES_PATH% to your PATH environment variable. That way, not only can you run examples easily, but the latest DLLs will always be found.">
+
+<meta property="og:title" content="OSG笔记-1-编译安装 - Betterjun, 做更好的自己!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://betterjun.top/osg/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/">
+<meta property="og:image" content="http://betterjun.top/images/default.png">
+<meta property="og:site_name" content="Betterjun, 做更好的自己!">
+<meta property="og:description" content="1. 获取 1.1. 快速开始 快速开始,对整个流程的介绍，见这里http://www.openscenegraph.org/index.php/documentation/getting-started。1.2. 下载 下载源码编译， http://www.openscenegraph.org/index.php/download-section/stable-releases。1.3. 编译 所有平台的编译入口在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics。windows平台编译方法在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics/windows/37-visual-studio。1.4. 获取样例数据 在后面运行OSG的示例程序时，需要用到样例数据，在这里下载，http://www.openscenegraph.org/index.php/download-section/data。1.5. 执行样例程序 执行样例程序，需要设置环境变量OSG_FILE_PATH，具体见，http://www.openscenegraph.org/index.php/documentation/guides/user-guides/113-running-the-examples。2. 新建工程编译 官方建议单独新建工程，不要和OSG的工程混在一起。同时将OpenSceneGraph\applications\osgViewer\osgViewer.cpp拷贝添加到新工程中，然后设置编译环境，验证编译通过。2.1. 工程设置 建议设置如下环境变量 OSG_ROOT points to the base of the OSG file structure (the directory that contains include, src etc. subdirectories)OSG_BIN_PATH = %OSG_ROOT%\binOSG_INCLUDE_PATH = %OSG_ROOT%\includeOSG_LIB_PATH = %OSG_ROOT%\libOSG_SAMPLES_PATH = %OSG_ROOT%\share\OpenSceneGraph\binOSG_FILE_PATH = ???\OpenSceneGraph-Data-X.XThen, add %OSG_BIN_PATH% and %OSG_SAMPLES_PATH% to your PATH environment variable. That way, not only can you run examples easily, but the latest DLLs will always be found.">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Betterjun, 做更好的自己!">
+<meta name="twitter:url" content="http://betterjun.top/osg/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/">
+<meta name="twitter:title" content="OSG笔记-1-编译安装 - Betterjun, 做更好的自己!">
+<meta name="twitter:description" content="1. 获取 1.1. 快速开始 快速开始,对整个流程的介绍，见这里http://www.openscenegraph.org/index.php/documentation/getting-started。1.2. 下载 下载源码编译， http://www.openscenegraph.org/index.php/download-section/stable-releases。1.3. 编译 所有平台的编译入口在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics。windows平台编译方法在这里，http://www.openscenegraph.org/index.php/documentation/platform-specifics/windows/37-visual-studio。1.4. 获取样例数据 在后面运行OSG的示例程序时，需要用到样例数据，在这里下载，http://www.openscenegraph.org/index.php/download-section/data。1.5. 执行样例程序 执行样例程序，需要设置环境变量OSG_FILE_PATH，具体见，http://www.openscenegraph.org/index.php/documentation/guides/user-guides/113-running-the-examples。2. 新建工程编译 官方建议单独新建工程，不要和OSG的工程混在一起。同时将OpenSceneGraph\applications\osgViewer\osgViewer.cpp拷贝添加到新工程中，然后设置编译环境，验证编译通过。2.1. 工程设置 建议设置如下环境变量 OSG_ROOT points to the base of the OSG file structure (the directory that contains include, src etc. subdirectories)OSG_BIN_PATH = %OSG_ROOT%\binOSG_INCLUDE_PATH = %OSG_ROOT%\includeOSG_LIB_PATH = %OSG_ROOT%\libOSG_SAMPLES_PATH = %OSG_ROOT%\share\OpenSceneGraph\binOSG_FILE_PATH = ???\OpenSceneGraph-Data-X.XThen, add %OSG_BIN_PATH% and %OSG_SAMPLES_PATH% to your PATH environment variable. That way, not only can you run examples easily, but the latest DLLs will always be found.">
+<meta name="twitter:image" content="http://betterjun.top/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http:\/\/betterjun.top\/"
+    },
+    "headline": "OSG笔记-1-编译安装 - Betterjun, 做更好的自己!",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http:\/\/betterjun.top\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2017-05-28T23:12:00JST",
+    "dateModified": "2017-05-28T23:12:00JST",
+    "author": {
+      "@type": "Person",
+      "name": "Betterjun, 做更好的自己!"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Betterjun, 做更好的自己!",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/betterjun.top\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "1. 获取 1.1. 快速开始 快速开始,对整个流程的介绍，见这里http:\/\/www.openscenegraph.org\/index.php\/documentation\/getting-started。\n1.2. 下载 下载源码编译， http:\/\/www.openscenegraph.org\/index.php\/download-section\/stable-releases。\n1.3. 编译 所有平台的编译入口在这里，http:\/\/www.openscenegraph.org\/index.php\/documentation\/platform-specifics。\nwindows平台编译方法在这里，http:\/\/www.openscenegraph.org\/index.php\/documentation\/platform-specifics\/windows\/37-visual-studio。\n1.4. 获取样例数据 在后面运行OSG的示例程序时，需要用到样例数据，在这里下载，http:\/\/www.openscenegraph.org\/index.php\/download-section\/data。\n1.5. 执行样例程序 执行样例程序，需要设置环境变量OSG_FILE_PATH，具体见，http:\/\/www.openscenegraph.org\/index.php\/documentation\/guides\/user-guides\/113-running-the-examples。\n2. 新建工程编译 官方建议单独新建工程，不要和OSG的工程混在一起。同时将OpenSceneGraph\\applications\\osgViewer\\osgViewer.cpp拷贝添加到新工程中，然后设置编译环境，验证编译通过。\n2.1. 工程设置 建议设置如下环境变量\n OSG_ROOT points to the base of the OSG file structure (the directory that contains include, src etc. subdirectories)\nOSG_BIN_PATH = %OSG_ROOT%\\bin\nOSG_INCLUDE_PATH = %OSG_ROOT%\\include\nOSG_LIB_PATH = %OSG_ROOT%\\lib\nOSG_SAMPLES_PATH = %OSG_ROOT%\\share\\OpenSceneGraph\\bin\nOSG_FILE_PATH = ???\\OpenSceneGraph-Data-X.X\nThen, add %OSG_BIN_PATH% and %OSG_SAMPLES_PATH% to your PATH environment variable. That way, not only can you run examples easily, but the latest DLLs will always be found."
+  }
+</script>
+
+
+    <link href="http://betterjun.top/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://betterjun.top/">Betterjun, 做更好的自己!</a>
+          </div>
+
+          
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/">Home</a></li>
+              
+              
+              
+              <li><a href="/tags/">Tag</a></li>
+              
+              
+              
+              <li><a href="/categories/">Category</a></li>
+              
+              
+            </ul>
+            
+          </div>
+          
+
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        
+<div class="row">
+  <div class="col-md-8">
+
+    <nav class="p-crumb">
+      <ol class="breadcrumb">
+        <li><a href="http://betterjun.top/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="http://betterjun.top/osg/" itemprop="url"><span itemprop="title">osg</span></a></li>
+        
+        <li class="active">OSG笔记-1-编译安装</li>
+      </ol>
+    </nav>
+
+    <article class="single">
+  <header>
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-28T23:12:00JST">May 28, 2017</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="http://betterjun.top/osg/">osg</a></li>
+      
+    </ul>
+
+    <h1 class="title">OSG笔记-1-编译安装</h1>
+  </header>
+
+  
+
+  <div class="article-body">
+
+<h2 id="1-获取">1. 获取</h2>
+
+<h3 id="1-1-快速开始">1.1. 快速开始</h3>
+
+<p>快速开始,对整个流程的介绍，见这里<a href="http://www.openscenegraph.org/index.php/documentation/getting-started">http://www.openscenegraph.org/index.php/documentation/getting-started</a>。</p>
+
+<h3 id="1-2-下载">1.2. 下载</h3>
+
+<p>下载源码编译，
+<a href="http://www.openscenegraph.org/index.php/download-section/stable-releases">http://www.openscenegraph.org/index.php/download-section/stable-releases</a>。</p>
+
+<h3 id="1-3-编译">1.3. 编译</h3>
+
+<p>所有平台的编译入口在这里，<a href="http://www.openscenegraph.org/index.php/documentation/platform-specifics">http://www.openscenegraph.org/index.php/documentation/platform-specifics</a>。</p>
+
+<p>windows平台编译方法在这里，<a href="http://www.openscenegraph.org/index.php/documentation/platform-specifics/windows/37-visual-studio">http://www.openscenegraph.org/index.php/documentation/platform-specifics/windows/37-visual-studio</a>。</p>
+
+<h3 id="1-4-获取样例数据">1.4. 获取样例数据</h3>
+
+<p>在后面运行OSG的示例程序时，需要用到样例数据，在这里下载，<a href="http://www.openscenegraph.org/index.php/download-section/data">http://www.openscenegraph.org/index.php/download-section/data</a>。</p>
+
+<h3 id="1-5-执行样例程序">1.5. 执行样例程序</h3>
+
+<p>执行样例程序，需要设置环境变量OSG_FILE_PATH，具体见，<a href="http://www.openscenegraph.org/index.php/documentation/guides/user-guides/113-running-the-examples">http://www.openscenegraph.org/index.php/documentation/guides/user-guides/113-running-the-examples</a>。</p>
+
+<h2 id="2-新建工程编译">2. 新建工程编译</h2>
+
+<p>官方建议单独新建工程，不要和OSG的工程混在一起。同时将OpenSceneGraph\applications\osgViewer\osgViewer.cpp拷贝添加到新工程中，然后设置编译环境，验证编译通过。</p>
+
+<h3 id="2-1-工程设置">2.1. 工程设置</h3>
+
+<p>建议设置如下环境变量</p>
+
+<blockquote>
+<p><code>OSG_ROOT points to the base of the OSG file structure (the directory that contains include, src etc. subdirectories)</code></p>
+
+<p><code>OSG_BIN_PATH = %OSG_ROOT%\bin</code></p>
+
+<p><code>OSG_INCLUDE_PATH = %OSG_ROOT%\include</code></p>
+
+<p><code>OSG_LIB_PATH = %OSG_ROOT%\lib</code></p>
+
+<p><code>OSG_SAMPLES_PATH = %OSG_ROOT%\share\OpenSceneGraph\bin</code></p>
+
+<p><code>OSG_FILE_PATH = ???\OpenSceneGraph-Data-X.X</code></p>
+
+<p><code>Then, add %OSG_BIN_PATH% and %OSG_SAMPLES_PATH% to your PATH environment variable. That way, not only can you run examples easily, but the latest DLLs will always be found. When starting an application, Windows looks for the required DLLs first in the executable's directory, then in the PATH.</code></p>
+</blockquote>
+
+<p>然后再在新建的vs工程目录中，增加如下设置</p>
+
+<blockquote>
+<p><code>Properties - C/C++ - General - Additional Include Directories = $(OSG_INCLUDE_PATH)</code></p>
+
+<p><code>Properties - C/C++ - Preprocessor - Preprocessor Definitions = WIN32;_WIN32;NDEBUG</code></p>
+
+<p><code>Properties - Linker - General - Additional Library Directories = $(OSG_LIB_PATH)</code></p>
+
+<p><code>Properties - Linker - Input - Additional Dependencies = (any OSG library your project needs - for example: OpenThreads.lib osg.lib osgDB.lib osgFX.lib osgGA.lib osgManipulator.lib osgParticle.lib osgShadow.lib osgSim.lib osgTerrain.lib osgText.lib osgUtil.lib osgViewer.lib)</code></p>
+</blockquote>
+
+<p>debug版本的库，需要在尾部上增加一个d，比如OpenThreadsd.lib osgd.lib osgDBd.lib osgFXd.lib osgGAd.lib osgManipulatord.lib osgParticled.lib osgShadowd.lib osgSimd.lib osgTerraind.lib osgTextd.lib osgUtild.lib osgViewerd.lib。</p>
+
+<p>上面几个设置，我自己采用的是INSTALL工程的输出目录，可以把debug和release自己手动再分开。</p>
+
+<h3 id="2-2-配置选项说明">2.2. 配置选项说明</h3>
+
+<p>对“解决方案配置”的选项，Release和MinSizeRel，Release是多线程编译，输出的二进制文件不能做到最小化，MinSizeRel是单线程编译，输出的文件可以做到最小化，但是非常慢。</p>
+</div>
+
+  <footer class="article-footer">
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">CATEGORIES</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">TAGS</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/tags/osg/">osg</a></li>
+          
+          <li><a href="http://betterjun.top/tags/openscenegraph/">OpenSceneGraph</a></li>
+          
+          <li><a href="http://betterjun.top/tags/%E7%BC%96%E8%AF%91/">编译</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+  </footer>
+
+</article>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'XYW';
+    var disqus_identifier = 'http:\/\/betterjun.top\/osg\/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91\/';
+    var disqus_title = 'OSG笔记-1-编译安装';
+    var disqus_url = 'http:\/\/betterjun.top\/osg\/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+  <div class="col-md-4">
+    
+<aside class="l-sidebar">
+
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">LATESTS</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/osg/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/" class="list-group-item">OSG笔记-1-编译安装</a>
+      
+      <a href="http://betterjun.top/linux_cmd/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">top命令学习汇总</a>
+      
+      <a href="http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">ps命令学习汇总</a>
+      
+    </div>
+  </section>
+
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">CATEGORY</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93" class="list-group-item">学习总结</a>
+      
+    </div>
+  </section>
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">TAG</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/tags/linux" class="list-group-item">linux</a>
+      
+      <a href="http://betterjun.top/tags/openscenegraph" class="list-group-item">openscenegraph</a>
+      
+      <a href="http://betterjun.top/tags/osg" class="list-group-item">osg</a>
+      
+      <a href="http://betterjun.top/tags/ps" class="list-group-item">ps</a>
+      
+      <a href="http://betterjun.top/tags/top" class="list-group-item">top</a>
+      
+      <a href="http://betterjun.top/tags/%E7%BC%96%E8%AF%91" class="list-group-item">编译</a>
+      
+    </div>
+  </section>
+  
+
+</aside>
+
+
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="container">
+        <p><span class="h-logo">&copy; Betterjun, 做更好的自己!</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

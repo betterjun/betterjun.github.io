@@ -9,10 +9,10 @@
     
     <item>
       <title>ps命令学习汇总</title>
-      <link>http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
+      <link>http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
       <pubDate>Sun, 01 Jan 2017 23:30:28 +0800</pubDate>
       
-      <guid>http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
+      <guid>http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
       <description>&lt;p&gt;常用用法，查看进程cpu、占用内存、虚拟内存信息&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[root@SE ~]# ps axu

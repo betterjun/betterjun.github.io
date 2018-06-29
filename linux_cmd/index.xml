@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on Betterjun, 做更好的自己!</title>
-    <link>http://betterjun.top/post/index.xml</link>
-    <description>Recent content in Post-rsses on Betterjun, 做更好的自己!</description>
+    <title>Linux_cmd-rsses on Betterjun, 做更好的自己!</title>
+    <link>http://betterjun.top/linux_cmd/index.xml</link>
+    <description>Recent content in Linux_cmd-rsses on Betterjun, 做更好的自己!</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 01 Jan 2017 23:31:00 +0800</lastBuildDate>
-    <atom:link href="http://betterjun.top/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://betterjun.top/linux_cmd/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>top命令学习汇总</title>
-      <link>http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
+      <link>http://betterjun.top/linux_cmd/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
       <pubDate>Sun, 01 Jan 2017 23:31:00 +0800</pubDate>
       
-      <guid>http://betterjun.top/post/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
+      <guid>http://betterjun.top/linux_cmd/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
       <description>
 
 &lt;h2 id=&#34;常规用法&#34;&gt;常规用法:&lt;/h2&gt;
@@ -98,10 +98,10 @@ Swap: 32767992k total,        0k used, 32767992k free,  1340088k cached
     
     <item>
       <title>ps命令学习汇总</title>
-      <link>http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
+      <link>http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</link>
       <pubDate>Sun, 01 Jan 2017 23:30:28 +0800</pubDate>
       
-      <guid>http://betterjun.top/post/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
+      <guid>http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/</guid>
       <description>&lt;p&gt;常用用法，查看进程cpu、占用内存、虚拟内存信息&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[root@SE ~]# ps axu
