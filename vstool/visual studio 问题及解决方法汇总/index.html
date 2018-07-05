@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.17" />
+
+
+
+<link rel="canonical" href="http://betterjun.top/vstool/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>visual studio编译错误解决 - Betterjun, 做更好的自己!</title>
+    
+<meta name="description" content="1. vs express 2017打开sln工程文件，所有项目加载失败，不能编译。 表现： ` 使用grpc，通过cmake生成的vs工程文件，vs express 2017打开后，全都是加载失败，报下面的错误D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj : error : 无法读取项目文件ALL_BUILD.vcxproj”。 D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\ALL_BUILD.dir\nasm.props”。请确认  声明中路径正确，且磁盘上存在该文件。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj : error : 无法读取项目文件INSTALL.vcxproj”。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\INSTALL.dir\nasm.props”。请确认  声明中的径正确，且磁盘上存在该文件。 `解决方法： 将项目文件打开，找到对应的行，把xml文件中的import一行删除掉，保存重新编译，就可以解决。2. git clone/checkout的文件报编译错误。 表现： 其他同事正常编译通过的代码，git提交后，在另一台机器再clone或checkout，就会报各种编译错误，全为语法错误，都是windows机器。分析错误原因，猜测可能是有中文注释，编码问题，有特殊字符导致的。将部分中文删除后，能消除部分编译错误。后来发现，上一行为中文注释，下一行是代码，就容易报错误，在注释的结尾，增加一行空格，再编译，也可以消除报的错误。 后来再和正常编译的机器上，比较代码，发现编译正常那边是回车换行分割，编译错误的是换行分割。基本确定是vs对不同行分隔符的处理有有问题。解决方法： 后来重装git，发现git对文本文件换行有个设置选项，是否转换换行符，具体如下图 windows上建议选择上图的第一种。命令行执行 git config -l 也可以查看当前设置，如下 &amp;gt;core.autocrlf=true通过命令行或者tortorisegit等gui工具也可以重新设置此参数。">
+
+<meta property="og:title" content="visual studio编译错误解决 - Betterjun, 做更好的自己!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://betterjun.top/vstool/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">
+<meta property="og:image" content="http://betterjun.top/images/default.png">
+<meta property="og:site_name" content="Betterjun, 做更好的自己!">
+<meta property="og:description" content="1. vs express 2017打开sln工程文件，所有项目加载失败，不能编译。 表现： ` 使用grpc，通过cmake生成的vs工程文件，vs express 2017打开后，全都是加载失败，报下面的错误D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj : error : 无法读取项目文件ALL_BUILD.vcxproj”。 D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\ALL_BUILD.dir\nasm.props”。请确认  声明中路径正确，且磁盘上存在该文件。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj : error : 无法读取项目文件INSTALL.vcxproj”。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\INSTALL.dir\nasm.props”。请确认  声明中的径正确，且磁盘上存在该文件。 `解决方法： 将项目文件打开，找到对应的行，把xml文件中的import一行删除掉，保存重新编译，就可以解决。2. git clone/checkout的文件报编译错误。 表现： 其他同事正常编译通过的代码，git提交后，在另一台机器再clone或checkout，就会报各种编译错误，全为语法错误，都是windows机器。分析错误原因，猜测可能是有中文注释，编码问题，有特殊字符导致的。将部分中文删除后，能消除部分编译错误。后来发现，上一行为中文注释，下一行是代码，就容易报错误，在注释的结尾，增加一行空格，再编译，也可以消除报的错误。 后来再和正常编译的机器上，比较代码，发现编译正常那边是回车换行分割，编译错误的是换行分割。基本确定是vs对不同行分隔符的处理有有问题。解决方法： 后来重装git，发现git对文本文件换行有个设置选项，是否转换换行符，具体如下图 windows上建议选择上图的第一种。命令行执行 git config -l 也可以查看当前设置，如下 &amp;gt;core.autocrlf=true通过命令行或者tortorisegit等gui工具也可以重新设置此参数。">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="Betterjun, 做更好的自己!">
+<meta name="twitter:url" content="http://betterjun.top/vstool/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">
+<meta name="twitter:title" content="visual studio编译错误解决 - Betterjun, 做更好的自己!">
+<meta name="twitter:description" content="1. vs express 2017打开sln工程文件，所有项目加载失败，不能编译。 表现： ` 使用grpc，通过cmake生成的vs工程文件，vs express 2017打开后，全都是加载失败，报下面的错误D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj : error : 无法读取项目文件ALL_BUILD.vcxproj”。 D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\ALL_BUILD.dir\nasm.props”。请确认  声明中路径正确，且磁盘上存在该文件。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj : error : 无法读取项目文件INSTALL.vcxproj”。 D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\INSTALL.dir\nasm.props”。请确认  声明中的径正确，且磁盘上存在该文件。 `解决方法： 将项目文件打开，找到对应的行，把xml文件中的import一行删除掉，保存重新编译，就可以解决。2. git clone/checkout的文件报编译错误。 表现： 其他同事正常编译通过的代码，git提交后，在另一台机器再clone或checkout，就会报各种编译错误，全为语法错误，都是windows机器。分析错误原因，猜测可能是有中文注释，编码问题，有特殊字符导致的。将部分中文删除后，能消除部分编译错误。后来发现，上一行为中文注释，下一行是代码，就容易报错误，在注释的结尾，增加一行空格，再编译，也可以消除报的错误。 后来再和正常编译的机器上，比较代码，发现编译正常那边是回车换行分割，编译错误的是换行分割。基本确定是vs对不同行分隔符的处理有有问题。解决方法： 后来重装git，发现git对文本文件换行有个设置选项，是否转换换行符，具体如下图 windows上建议选择上图的第一种。命令行执行 git config -l 也可以查看当前设置，如下 &amp;gt;core.autocrlf=true通过命令行或者tortorisegit等gui工具也可以重新设置此参数。">
+<meta name="twitter:image" content="http://betterjun.top/images/default.png">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id":"http:\/\/betterjun.top\/"
+    },
+    "headline": "visual studio编译错误解决 - Betterjun, 做更好的自己!",
+    "image": {
+      "@type": "ImageObject",
+      "url": "http:\/\/betterjun.top\/images\/default.png",
+      "height": 800,
+      "width": 800
+    },
+    "datePublished": "2018-07-05T10:27:49JST",
+    "dateModified": "2018-07-05T10:27:49JST",
+    "author": {
+      "@type": "Person",
+      "name": "Betterjun, 做更好的自己!"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Betterjun, 做更好的自己!",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/betterjun.top\/images/logo.png",
+        "width": 600,
+        "height": 60
+      }
+    },
+    "description": "1. vs express 2017打开sln工程文件，所有项目加载失败，不能编译。 表现： ` 使用grpc，通过cmake生成的vs工程文件，vs express 2017打开后，全都是加载失败，报下面的错误\nD:\\code\\grpc\\grpc\\bin-x86\\ALL_BUILD.vcxproj : error : 无法读取项目文件ALL_BUILD.vcxproj”。 D:\\code\\grpc\\grpc\\bin-x86\\ALL_BUILD.vcxproj(52,5): 未找到导入的项目D:\\code\\grpc\\grpc\\bin\\ALL_BUILD.dir\\nasm.props”。请确认  声明中路径正确，且磁盘上存在该文件。 D:\\code\\grpc\\grpc\\bin-x86\\INSTALL.vcxproj : error : 无法读取项目文件INSTALL.vcxproj”。 D:\\code\\grpc\\grpc\\bin-x86\\INSTALL.vcxproj(52,5): 未找到导入的项目D:\\code\\grpc\\grpc\\bin\\INSTALL.dir\\nasm.props”。请确认  声明中的径正确，且磁盘上存在该文件。 `\n解决方法： 将项目文件打开，找到对应的行，把xml文件中的import一行删除掉，保存重新编译，就可以解决。\n2. git clone\/checkout的文件报编译错误。 表现： 其他同事正常编译通过的代码，git提交后，在另一台机器再clone或checkout，就会报各种编译错误，全为语法错误，都是windows机器。分析错误原因，猜测可能是有中文注释，编码问题，有特殊字符导致的。将部分中文删除后，能消除部分编译错误。后来发现，上一行为中文注释，下一行是代码，就容易报错误，在注释的结尾，增加一行空格，再编译，也可以消除报的错误。 后来再和正常编译的机器上，比较代码，发现编译正常那边是回车换行分割，编译错误的是换行分割。基本确定是vs对不同行分隔符的处理有有问题。\n解决方法： 后来重装git，发现git对文本文件换行有个设置选项，是否转换换行符，具体如下图 windows上建议选择上图的第一种。命令行执行 git config -l 也可以查看当前设置，如下 \x26gt;core.autocrlf=true\n通过命令行或者tortorisegit等gui工具也可以重新设置此参数。"
+  }
+</script>
+
+
+    <link href="http://betterjun.top/css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://betterjun.top/">Betterjun, 做更好的自己!</a>
+          </div>
+
+          
+          <div id="navbar" class="collapse navbar-collapse">
+            
+            <ul class="nav navbar-nav navbar-right">
+              
+              
+              <li><a href="/">Home</a></li>
+              
+              
+              
+              <li><a href="/tags/">Tag</a></li>
+              
+              
+              
+              <li><a href="/categories/">Category</a></li>
+              
+              
+            </ul>
+            
+          </div>
+          
+
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        
+<div class="row">
+  <div class="col-md-8">
+
+    <nav class="p-crumb">
+      <ol class="breadcrumb">
+        <li><a href="http://betterjun.top/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="http://betterjun.top/vstool/" itemprop="url"><span itemprop="title">vstool</span></a></li>
+        
+        <li class="active">visual studio编译错误解决</li>
+      </ol>
+    </nav>
+
+    <article class="single">
+  <header>
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2018-07-05T10:27:49JST">Jul 5, 2018</time></li>
+      <li><i class="fa fa-bookmark" aria-hidden="true"></i><a href="http://betterjun.top/vstool/">vstool</a></li>
+      
+    </ul>
+
+    <h1 class="title">visual studio编译错误解决</h1>
+  </header>
+
+  
+
+  <div class="article-body">
+
+<h2 id="1-vs-express-2017打开sln工程文件-所有项目加载失败-不能编译">1. vs express 2017打开sln工程文件，所有项目加载失败，不能编译。</h2>
+
+<h3 id="表现">表现：</h3>
+
+<p>`
+使用grpc，通过cmake生成的vs工程文件，vs express 2017打开后，全都是加载失败，报下面的错误</p>
+
+<p>D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj : error  : 无法读取项目文件ALL_BUILD.vcxproj”。
+D:\code\grpc\grpc\bin-x86\ALL_BUILD.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\ALL_BUILD.dir\nasm.props”。请确认 <Import> 声明中路径正确，且磁盘上存在该文件。
+D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj : error  : 无法读取项目文件INSTALL.vcxproj”。
+D:\code\grpc\grpc\bin-x86\INSTALL.vcxproj(52,5): 未找到导入的项目D:\code\grpc\grpc\bin\INSTALL.dir\nasm.props”。请确认 <Import> 声明中的径正确，且磁盘上存在该文件。
+`</p>
+
+<h3 id="解决方法">解决方法：</h3>
+
+<p>将项目文件打开，找到对应的行，把xml文件中的import一行删除掉，保存重新编译，就可以解决。</p>
+
+<h2 id="2-git-clone-checkout的文件报编译错误">2. git clone/checkout的文件报编译错误。</h2>
+
+<h3 id="表现-1">表现：</h3>
+
+<p>其他同事正常编译通过的代码，git提交后，在另一台机器再clone或checkout，就会报各种编译错误，全为语法错误，都是windows机器。分析错误原因，猜测可能是有中文注释，编码问题，有特殊字符导致的。将部分中文删除后，能消除部分编译错误。后来发现，<strong>上一行为中文注释，下一行是代码，就容易报错误，在注释的结尾，增加一行空格，再编译，也可以消除报的错误。</strong> 后来再和正常编译的机器上，比较代码，发现<strong>编译正常那边是回车换行分割，编译错误的是换行分割</strong>。基本确定是vs对不同行分隔符的处理有有问题。</p>
+
+<h3 id="解决方法-1">解决方法：</h3>
+
+<p>后来重装git，发现git对文本文件换行有个设置选项，是否转换换行符，具体如下图
+<img src="../git_line_ending_conversion.png" alt="git换行符转换" /></p>
+
+<p>windows上建议选择上图的第一种。命令行执行 git config -l 也可以查看当前设置，如下
+&gt;<code>core.autocrlf=true</code></p>
+
+<p>通过命令行或者tortorisegit等gui工具也可以重新设置此参数。</p>
+</div>
+
+  <footer class="article-footer">
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">CATEGORIES</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+    
+    <section class="bordered">
+      <header>
+        <div class="panel-title">TAGS</div>
+      </header>
+      <div>
+        <ul class="p-terms">
+          
+          <li><a href="http://betterjun.top/tags/visual-studio/">visual studio</a></li>
+          
+          <li><a href="http://betterjun.top/tags/vs%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/">vs编译错误</a></li>
+          
+          <li><a href="http://betterjun.top/tags/grpc/">grpc</a></li>
+          
+        </ul>
+      </div>
+    </section>
+    
+    
+  </footer>
+
+</article>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'XYW';
+    var disqus_identifier = 'http:\/\/betterjun.top\/vstool\/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB\/';
+    var disqus_title = 'visual studio编译错误解决';
+    var disqus_url = 'http:\/\/betterjun.top\/vstool\/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+  <div class="col-md-4">
+    
+<aside class="l-sidebar">
+
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">LATESTS</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/vstool/visual%20studio%20%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" class="list-group-item">visual studio编译错误解决</a>
+      
+      <a href="http://betterjun.top/osg/osg%E7%AC%94%E8%AE%B0-1-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/" class="list-group-item">OSG笔记-1-编译安装</a>
+      
+      <a href="http://betterjun.top/linux_cmd/top%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">top命令学习汇总</a>
+      
+      <a href="http://betterjun.top/linux_cmd/ps%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E6%B1%87%E6%80%BB/" class="list-group-item">ps命令学习汇总</a>
+      
+    </div>
+  </section>
+
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">CATEGORY</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93" class="list-group-item">学习总结</a>
+      
+    </div>
+  </section>
+  
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">TAG</div>
+    </div>
+    <div class="list-group">
+      
+      <a href="http://betterjun.top/tags/linux" class="list-group-item">linux</a>
+      
+      <a href="http://betterjun.top/tags/grpc" class="list-group-item">grpc</a>
+      
+      <a href="http://betterjun.top/tags/openscenegraph" class="list-group-item">openscenegraph</a>
+      
+      <a href="http://betterjun.top/tags/osg" class="list-group-item">osg</a>
+      
+      <a href="http://betterjun.top/tags/ps" class="list-group-item">ps</a>
+      
+      <a href="http://betterjun.top/tags/top" class="list-group-item">top</a>
+      
+      <a href="http://betterjun.top/tags/visual-studio" class="list-group-item">visual-studio</a>
+      
+      <a href="http://betterjun.top/tags/vs%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF" class="list-group-item">vs编译错误</a>
+      
+      <a href="http://betterjun.top/tags/%E7%BC%96%E8%AF%91" class="list-group-item">编译</a>
+      
+    </div>
+  </section>
+  
+
+</aside>
+
+
+  </div>
+</div>
+
+      </div>
+    </main>
+
+    <footer class="l-footer">
+      <div class="container">
+        <p><span class="h-logo">&copy; Betterjun, 做更好的自己!</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+        </aside>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
